@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "/home/erdem/miniconda3/envs/airflow_env/lib/python3.9/site-packages/lockfile/pidlockfile.py", line 77, in acquire
+    write_pid_to_pidfile(self.path)
+  File "/home/erdem/miniconda3/envs/airflow_env/lib/python3.9/site-packages/lockfile/pidlockfile.py", line 161, in write_pid_to_pidfile
+    pidfile_fd = os.open(pidfile_path, open_flags, open_mode)
+FileExistsError: [Errno 17] File exists: '/home/erdem/airflow/airflow-scheduler.pid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/erdem/miniconda3/envs/airflow_env/bin/airflow", line 8, in <module>
+    sys.exit(main())
+  File "/home/erdem/miniconda3/envs/airflow_env/lib/python3.9/site-packages/airflow/__main__.py", line 48, in main
+    args.func(args)
+  File "/home/erdem/miniconda3/envs/airflow_env/lib/python3.9/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/erdem/miniconda3/envs/airflow_env/lib/python3.9/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/erdem/miniconda3/envs/airflow_env/lib/python3.9/site-packages/airflow/cli/commands/scheduler_command.py", line 69, in scheduler
+    with ctx:
+  File "/home/erdem/miniconda3/envs/airflow_env/lib/python3.9/site-packages/daemon/daemon.py", line 389, in __enter__
+    self.open()
+  File "/home/erdem/miniconda3/envs/airflow_env/lib/python3.9/site-packages/daemon/daemon.py", line 381, in open
+    self.pidfile.__enter__()
+  File "/home/erdem/miniconda3/envs/airflow_env/lib/python3.9/site-packages/lockfile/__init__.py", line 197, in __enter__
+    self.acquire()
+  File "/home/erdem/miniconda3/envs/airflow_env/lib/python3.9/site-packages/daemon/pidfile.py", line 57, in acquire
+    super().acquire(timeout, *args, **kwargs)
+  File "/home/erdem/miniconda3/envs/airflow_env/lib/python3.9/site-packages/lockfile/pidlockfile.py", line 87, in acquire
+    raise AlreadyLocked("%s is already locked" %
+lockfile.AlreadyLocked: /home/erdem/airflow/airflow-scheduler.pid is already locked
